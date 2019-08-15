@@ -16,11 +16,15 @@ Please begin this exercise by forking the repo into your own GitHub workspace. W
 
 Your submission must be implemented in Python 3.7. We may not be able to review code submitted in any other language. 
 
+## Bonus questions
+
+Bonus questions are optional. You will not be penalized if you do not attempt the bonus questions.
+
 ## How we will assess your submission
 
 * We will run your code. Please include all relevant documentation and scripts which will allow us to execute your project.
 
-* We will run any tests you provide.
+* We are just as interested in your process as your final product. We want to understand your workflow, and your testing strategy.
 
 * We will read your code in order to determine if your implementation matches the requirements given in the question.
 
