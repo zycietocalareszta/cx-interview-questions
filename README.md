@@ -8,13 +8,13 @@
 
 This repo contains questions which are part of the ECS interview process. 
 
-This exercise is used as part of our interview process. This question is frquently updated. Please do not attempt this question until you are asked, as you may be directed to implement only a single question or part of a question.
+This exercise is used as part of our interview process. This question is often updated. Please do not attempt this question until you are asked, as you may be directed to implement only a single question or part of a question.
 
 ## How to implement and submit your work
 
 Please begin this exercise by forking the repo into your own GitHub workspace. When you have finished your work, please email your contact at ECS with the URL of your forked repo. There is no time-limit on this work, however we try to respect our candidate's time. We feel that this exercise can be completed in 1-3 hours. 
 
-Your submission must be implemented in Python 3.7. We may not be able to review code submitted in any other language. 
+Your submission must be implemented in Python 3 or TypeScript. If you are thinking of using any other language, please contact us first.
 
 ## Bonus questions
 
