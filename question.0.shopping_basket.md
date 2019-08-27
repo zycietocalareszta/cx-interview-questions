@@ -8,6 +8,8 @@ This is an important component of a shopping system. This component's responsibi
 
 For any given basket, your solution should return the sub-total, discount and total, all accurate to two decimal places.
 
+
+
 ### Definitions
 
 * **sub-total**: The undiscounted cost of items in a basket.
@@ -89,7 +91,7 @@ For example:
 * "Buy any 3 of Shampoo (Small), Shampoo (Medium) and Shampoo (Large), and you get the cheapest one for free.
 * Shampoo Medium is 50% off
 
-When determining which product is "cheapest", other discounts may apply.
+Make any changes to the shopping basket such that all rules are sensibly applied. 
 
 ## Bonus Question 3
 
