@@ -2,13 +2,13 @@
 
 ## Requirements
 
-You have been asked to implement a "shopping basket" pricer for a supermarket.
+You have been asked to implement a "shopping basket" pricing library for a supermarket.
 
 This is a component which if given a "basket" of products chosen by a customer, a "catalogue" of products available in a supermarket and a list of special offers, can calculate the price of goods including any applicable discounts. 
 
-This is to be a component of a shopping system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be written in a way that is reusable and makes few assumptions about how it will be used.
+This is to be a component of a much bigger system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be written in a way that is reusable and makes few assumptions about how it will be used.
 
-For any given basket, catalogue and offers your solution should return the sub-total, discount and total, all accurate to at least two decimal places.
+For any given basket, catalogue and offers your solution should return the sub-total, discount and total, all accurate to at least two decimal places. Prices can be returned as floating point numbers.
 
 ### Definitions
 
@@ -21,18 +21,19 @@ For any given basket, catalogue and offers your solution should return the sub-t
 ### Behavior
 
 * A basket can contain zero or more products.
-* An empty basket has a price of zero.
+* A basket is mutable - that is to say products an be added to it.
+* An empty basket has a sub-total, discount and total each of zero.
 * Baskets cannot have a negative price.
 * The discount and therefore the total price is determined by the contents of the basket, the undiscounted price of the goods and the applicable offers.
-* As with all supermarkets, the prices of goods and the offers applicable to those goods may change from day to day.
+* As with all supermarkets, the prices of goods and the offers applicable to those goods may change from day to day and therefore cannot be hard-coded into this component.
 
 #### Other considerations
 
-* We are only interested in the behavior of the shopping basket component. You do not need to build an API, web-interface or database. Try to stay focused on implementing the shopping basket, and especially pricing the basket.
-* You can use 3rd party components if you think it will be helpful. Use the included Pipfile to identify any dependencies your component needs. 
+* We are only interested in the behavior of the shopping basket pricer component. You do not need to build an API, web-interface or database. Try to stay focused on implementing the shopping basket, and especially pricing the basket.
+* You can use 3rd party components if you think it will be helpful, for example in your testing. Use the included Pipfile to identify any dependencies your component needs. 
 * Provide some documentation that will help us run your submission. You can put your documentation in [the readme file](./readme.md)
 * You can assume all prices are in £GBP, no need to consider any other currencies. 
-* For this exercise, a floating point number is good enough to represent a money value.
+* For this exercise, a floating point number is good enough to represent a money value, but if you have a better way to represent money, feel free to use it.
 
 ### Catalogue
 
