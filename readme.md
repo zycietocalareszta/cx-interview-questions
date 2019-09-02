@@ -14,9 +14,13 @@ Please do not attempt this question until you are asked, as you may be directed 
 
 ## How to implement and submit your work
 
-Please begin this exercise by forking the repo into your personal GitHub workspace. When you have finished your work, please email your contact at ECS with the URL of your forked repo. There is no time-limit on this work, however we try to respect our candidate's time. This exercise can be completed in 1-3 hours. You should not spend too much extra time on this assignment. We may not have enough time to review a very big submission.
+Please begin this exercise by forking the repo into your personal GitHub workspace. When you have finished your work, please email your contact at ECS with the URL of your forked repo. 
 
 Your work should be implemented in Python 3 or TypeScript. If you considering using any other language, please check with ECS first.
+
+Try to do test driven development. We want to see the tests you've written and how they guided your implementation. Show off your testing skills, but please try to keep the kinds of tests you implement relevant to the assignment. 
+
+There is no time-limit on this work, however want to respect your time. These questions are deliberately open-ended, but try to see what you can do in 1-3 hours. Also, remember that since we will be reviewing your code, we don't have time to carfully review a very big submission.
 
 ## Bonus questions
 

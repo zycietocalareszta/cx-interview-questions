@@ -4,19 +4,19 @@
 
 You have been asked to implement a "shopping basket" pricing library for a supermarket.
 
-This is a component which if given a "basket" of products chosen by a customer, a "catalogue" of products available in a supermarket and a list of special offers, can calculate the price of goods including any applicable discounts. 
+This is a component which if given a "basket" of products chosen by a customer, a "catalogue" of products available in a supermarket and a list of special offers, can calculate the price of goods including any applicable discounts. In other words, the basket component is responsible for working out which offers are applicable to products and applying those offers to work out the final price. 
 
-This is to be a component of a much bigger system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be written in a way that is reusable and makes few assumptions about how it will be used.
+This is to be a component of a much bigger system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be designed to be reusable. 
 
-For any given basket, catalogue and offers your solution should return the sub-total, discount and total, all accurate to at least two decimal places. Prices can be returned as floating point numbers.
+For any given basket, catalogue and offers your solution should return the sub-total, discount and total, all accurate to at least two decimal places. Prices can be returned as floating point numbers. 
 
 ### Definitions
 
 * **sub-total**: The undiscounted cost of items in a basket.
 * **discount**: The amount of money which must be subtracted from the subtotal in order to calculate the final price of the goods in the basket.
 * **total**: The final price of goods in the basket once the discount has been applied.
-* **offers**: These are pricing rules which under some circumstances may cause one or more items in the basket to be discounted, and consequently change the final price of the basket.
-* **catalogue**: The products currently sold by the supermarket. This component requires that products have a unique name and a price,
+* **offers**: These are pricing rules which under some circumstances may cause one or more items in the basket to be discounted, and consequently change the final price of the basket. 
+* **catalogue**: The products currently sold by the supermarket. This component requires that products have a unique name and a price. At minimum, the catalogue maps product names onto non-discounted prices.
 
 ### Behavior
 
@@ -26,10 +26,11 @@ For any given basket, catalogue and offers your solution should return the sub-t
 * Baskets cannot have a negative price.
 * The discount and therefore the total price is determined by the contents of the basket, the undiscounted price of the goods and the applicable offers.
 * As with all supermarkets, the prices of goods and the offers applicable to those goods may change from day to day and therefore cannot be hard-coded into this component.
+* Catalogue and offers are maintained by two different teams. It's possible that there are offers on products which are no longer in the catalogue. It's also possible that there are items in the catalogue with no offers, or multiple offers.
 
 #### Other considerations
 
-* We are only interested in the behavior of the shopping basket pricer component. You do not need to build an API, web-interface or database. Try to stay focused on implementing the shopping basket, and especially pricing the basket.
+* We are only interested in the behavior of the shopping basket pricer component. You do not need to build an API, web-interface or database. Try to stay focused on implementing the shopping basket, and especially the part which figures out which offers are applicable to a given basket.
 * You can use 3rd party components if you think it will be helpful, for example in your testing. Use the included Pipfile to identify any dependencies your component needs. 
 * Provide some documentation that will help us run your submission. You can put your documentation in [the readme file](./readme.md)
 * You can assume all prices are in £GBP, no need to consider any other currencies. 
