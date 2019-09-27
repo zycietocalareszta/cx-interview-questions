@@ -16,7 +16,11 @@ For example:
  
 As you can see, all 151 Pokemon in the Jhoto region are identified by an integer ID with a minimum value of 1 and a maximum of 151. It is rumored that higher-numbered Pokemon exist in other regions but these are outside the scope of this assignment.
 
+<<<<<<< HEAD
 ## Task 1
+=======
+## Interface requirements
+>>>>>>> Rewrite of the Pokemon question
 
 * Display the 
   * name
@@ -36,6 +40,7 @@ As you can see, all 151 Pokemon in the Jhoto region are identified by an integer
 2. The user clicks on the button.
 3. The empty section below the button is replaced with details about a single randomly chosen Pokemon.
 
+<<<<<<< HEAD
 ## Task 2
 
   * Create a sidebar on the left side of the screen with a list of 10 random pokemons
@@ -47,6 +52,8 @@ As you can see, all 151 Pokemon in the Jhoto region are identified by an integer
     * the last selected pokemon should be displayed again
     * but the sidebar should list a complete new list of 10 random pokemon
 
+=======
+>>>>>>> Rewrite of the Pokemon question
 # Tools
 You may use any tools or IDE (including online IDEs). 
 
