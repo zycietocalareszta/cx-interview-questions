@@ -1,4 +1,5 @@
-# Shopping Basket
+# Back End Development task: Shopping Basket
+This is a development assignment for ECS. Before attempting this assignment, please take note of our [general instructions](../readme.md) and any additional instructions which may have been provided by the ECS recruiter. Reading the instructions carefully is part of the assignment.
 
 ## Requirements
 
