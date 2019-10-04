@@ -36,3 +36,8 @@ The required behavior has been written into the comments in [atomic_weight.py](a
 31.998
 >>>
 ```
+
+## Bonus
+
+* Ensure that all declarations have type annotations. Use the mypy type-checking tool to verify your types are correct and consistent. Please include
+any scripts and configuration files you may have written to make type-checking work.
