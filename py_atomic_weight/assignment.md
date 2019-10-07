@@ -4,11 +4,11 @@
 
 You have been asked to implement a "atomic weight" pricing function for a science project.
 
-This is a comoponent which if given a chemical formula returns the atomic weight of that substance as a floating-point number. 
+This is a component which if given a chemical formula returns the atomic weight of that substance as a floating-point number. 
 
 The developer who worked on this project (briefly) only implemented the minimum required to make a very small collection of tests pass. You should expand these tests and the implementation accordingly. In order to deliver this assignment you will have to fully implement at least two incomplete functions. 
 
-You have been given a data file [periodic_table.json](periodic_table.json) which contains all of the information needed for this function to work.
+You have been given a data file, [periodic_table.json](periodic_table.json) which contains all of the information needed for this function to work.
 
 ### Definitions
 
