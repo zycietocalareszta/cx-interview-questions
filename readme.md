@@ -29,7 +29,7 @@ There is no time-limit on this work, however want to respect your time. These qu
 
 Please ensure that your submission includes all of the instructions and scripts required to build your project. If your project requires dependencies please include an appropriate method to resolve those dependencies like a Pipfile, requirements.txt or whatever solution is appropriate to your chosen platform.
 
-There is no time-limit on this work, however want to respect your time. These questions are deliberately open-ended, but try to see what you can do in 1-3 hours. Also, remember that since we will be reviewing your code, we don't have time to review a very big submission. 
+Please ensure that your submission includes all of the instructions and scripts required to build your project. If your project requires dependencies please include an appropriate method to resolve those dependencies like a Pipfile, requirements.txt or whatever solution is appropriate to your chosen platform.
 
 Bonus questions are optional. They are suggestions for further work. You will not be penalized if you do not attempt the bonus questions. We would rather see an excellent implementation of the base question than a less effective implementation of base + bonus.
 
