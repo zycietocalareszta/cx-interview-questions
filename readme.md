@@ -19,7 +19,7 @@ Please begin this exercise by *forking* the repo into your personal GitHub works
 
 Your work should be implemented in Python 3 or TypeScript. If you considering using any other language, please check with ECS first.
 
-Try to do test driven development. We want to see the tests you've written and how they guided your implementation. Show off your testing skills, but please try to keep the kinds of tests you implement relevant to the assignment. If you are implementing in Python you can use the built-in `unittest` framework or `pytest`, a popular 3rd party testing library.
+We consider tests very important and practice test driven development. We want to see the tests you've written and how they guided your implementation. Show off your testing skills, but please try to keep the kinds of tests you implement relevant to the assignment. If you are implementing in Python you can use the built-in `unittest` framework or `pytest`, a popular 3rd party testing library.
 
 This repo has directories and structure for each assignment. Please add your code to the directory and try to make use of the files which are already in this project. When you submit your work back we expect to see a modified version of this repo, not a new repository.
 
