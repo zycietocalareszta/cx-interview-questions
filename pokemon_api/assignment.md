@@ -11,8 +11,8 @@ You must implement this user story:
 It is widely believed that the Jhoto region is home to 151 species of Pokemon, all of which can be retrieved from the The [Pokemon API](https://pokeapi.co/).
 
 For example:
- * [Bulbasaur](https://pokeapi.co/api/v2/pokemon/1)
- * [Mew](https://pokeapi.co/api/v2/pokemon/151)
+ * [Bulbasaur #1](https://pokeapi.co/api/v2/pokemon/1)
+ * [Mew #151](https://pokeapi.co/api/v2/pokemon/151)
  
 As you can see, all 151 Pokemon in the Jhoto region are identified by an integer ID with a minimum value of 1 and a maximum of 151. It is rumored that higher-numbered Pokemon exist in other regions but these are outside the scope of this assignment.
 
@@ -28,7 +28,7 @@ As you can see, all 151 Pokemon in the Jhoto region are identified by an integer
     * HP
     * Weight
     
-* Create a simple interface based on the wireframe provided or your own concept.
+* Create a simple interface based on the right-hand section wireframe provided or your own concept.
 
 ## Example
 
