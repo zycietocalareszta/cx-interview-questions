@@ -6,7 +6,7 @@ Pokemon Centres in the Jhoto region are considering migrating all of their inter
 
 You must implement this user story:
   * As a user, I want to click a button which causes the details of a randomly chosen Pokemon to be displayed in a browser.
-  * Each time I click on the button the screen will change and display the details of the new pokemon. 
+  * Each time I click on the button the screen will change and display the details of the new, randomly chosen pokemon. 
 
 It is widely believed that the Jhoto region is home to 151 species of Pokemon, all of which can be retrieved from the The [Pokemon API](https://pokeapi.co/).
 
