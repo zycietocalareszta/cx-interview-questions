@@ -18,9 +18,9 @@ As you can see, all 151 Pokemon in the Jhoto region are identified by an integer
 
 ## Task 1
 
-* Display the 
-  * name
-  * the image (front-default sprite)
+* Display:
+  * the name
+  * the image (or icon or sprite); in the api this is the ```front-default sprite```
   * and stats of a pokemon
     * speed
     * defense & special defense
@@ -28,14 +28,16 @@ As you can see, all 151 Pokemon in the Jhoto region are identified by an integer
     * HP
     * Weight
     
-* Create a simple interface based on the right-hand section wireframe provided or your own concept.
+* Create a simple interface based on the right-hand section of wireframe provided (the orange area) or your own concept.
+* The image/icon of the pokemon is clickable.
 
 ## Example
 
-1. The user can see a button and an empty section below it.
+1. The first time the page loads, the user can see the details of a randomly selected pokemon.
 2. The user clicks on the button.
-3. The empty section below the button is replaced with details about a single randomly chosen Pokemon.
+3. The section is replaced with details about a single randomly chosen Pokemon, the image of the button is replaced with the sprite of the new pokemon.
 
+---
 ## Task 2
 
   * Create a sidebar on the left side of the screen with a list of 10 random pokemons
