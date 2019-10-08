@@ -1,23 +1,27 @@
-# Back End Development task: Shopping Basket
+# Back End Desigm & Development task: Shopping Basket
 This is a development assignment for ECS. Before attempting this assignment, please take note of our [general instructions](../readme.md) and any additional instructions which may have been provided by the ECS recruiter. Reading the instructions carefully is part of the assignment.
 
 ## Requirements
 
-You have been asked to implement a "shopping basket" pricing library for a supermarket.
+You have been asked to design and implement a "shopping basket" pricing library for a supermarket.
 
-This is a component which if given a "basket" of products chosen by a customer, a "catalogue" of products available in a supermarket and a list of special offers, can calculate the price of goods including any applicable discounts. In other words, the basket component is responsible for working out which offers are applicable to products and applying those offers to work out the final price. 
+This is a component which if given a selection of products chosen by a customer (the basket), a "catalogue" of products available in a supermarket and a collection of special-offers, can calculate the price of goods including any applicable discounts. 
 
-This is to be a component of a much bigger system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be designed to be reusable. 
+The basket-pricer component is responsible for working out which offers are applicable to products. It will apply those offers to work out the discount and therefore the final price. This component is not responsible for maintaining the mutable state of a shopping basket. It does not need to add and remove items from a basket. 
+
+This is to be a component of a much bigger system. It could be used in a number of different ways by other developers, for example in an online-shop or in the supermarket's cash-registers. For this reason, it needs to be designed to be reusable. This assignment requires you to design an interface for the basket-pricer which will be easy for other developers to use and test.
 
 For any given basket, catalogue and offers your solution should return the sub-total, discount and total, all accurate to at least two decimal places. Prices can be returned as floating point numbers. 
 
 ### Definitions
 
+* **basket**: A collection of goods a customer wishes to buy.
 * **sub-total**: The undiscounted cost of items in a basket.
 * **discount**: The amount of money which must be subtracted from the subtotal in order to calculate the final price of the goods in the basket.
 * **total**: The final price of goods in the basket once the discount has been applied.
 * **offers**: These are pricing rules which under some circumstances may cause one or more items in the basket to be discounted, and consequently change the final price of the basket. 
 * **catalogue**: The products currently sold by the supermarket. This component requires that products have a unique name and a price. At minimum, the catalogue maps product names onto non-discounted prices.
+* **basket-pricer**: The component you have been asked to build, which given a basket, catalogue and offers can work out the sub-total, discount and total price of the basket of goods.
 
 ### Behavior
 
@@ -31,7 +35,8 @@ For any given basket, catalogue and offers your solution should return the sub-t
 
 #### Other considerations
 
-* We are only interested in the behavior of the shopping basket pricer component. You do not need to build an API, web-interface or database. Try to stay focused on implementing the shopping basket, and especially the part which figures out which offers are applicable to a given basket.
+* We are only interested in the behavior of the shopping basket pricer component. You do not need to build an API, web-interface, database or any component which adds and removes items from the basket. Try to stay focused on implementing the pricer, and especially the logic which determines which offers are applicable to a particular basket of goods.
+* Consider edge cases in your testing. For example, an three for the price of two offer should also give you six for the price of four and nine for the price of six. 
 * You can use 3rd party components if you think it will be helpful, for example in your testing. Use the included Pipfile to identify any dependencies your component needs. 
 * Provide some documentation that will help us run your submission. You can put your documentation in [the readme file](./readme.md)
 * You can assume all prices are in £GBP, no need to consider any other currencies. 
@@ -39,7 +44,7 @@ For any given basket, catalogue and offers your solution should return the sub-t
 
 ### Catalogue
 
-This is an example catalogue, provided as a demonstration:
+This is an example catalogue, provided as a demonstration. You do not have to use these prices or products in your assignment:
 
 * **Baked Beans** £0.99
 * **Biscuits** £1.20

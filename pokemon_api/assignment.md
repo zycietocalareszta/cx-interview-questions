@@ -1,5 +1,5 @@
 # Front-End Developmet Task: Pokemon API
-This is a development assignment for ECS. Before attempting this assignment, please take note of our [general instructions](../readme.md) and any additional instructions which may have been provided by the ECS recruiter. Reading the instructions carefully is part of the assignment.
+This is a front-end development assignment for ECS. Before attempting this assignment, please take note of our [general instructions](../readme.md) and any additional instructions which may have been provided by the ECS recruiter. Reading the instructions carefully is part of the assignment.
 
 ## User Story
 Pokemon Centres in the Jhoto region are considering migrating all of their internal systems to a web-based interface. You have been asked to implement a small demo that shows how a web-application can connect with an existing API. 
