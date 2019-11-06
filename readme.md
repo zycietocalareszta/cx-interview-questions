@@ -29,9 +29,9 @@ This document contains the general instructions for submitting interview assignm
 
 ## How to implement and submit your work
 
-### Rememember to fork the repo
+### Remember to fork the repo
 
-Please begin this exercise by forking the repo into your personal GitHub workspace. When you have finished your work, please email your contact at ECS with the URL of your forked repo. Please ensure that your work has been merged into the **master** branch of your fork.
+Please begin this exercise by forking the repo into your personal GitHub workspace. When you have finished your work, please email your contact at ECS with the URL of your forked repo. Please ensure that your work has been merged into the **master** branch of your fork. You don't need to make a pull request to put your code into our repo.
 
 ### Use the right language
 
