@@ -58,3 +58,7 @@ One can perform the following operations:
 `>>> second_basket = {'apple': 2, 'banana': 1}`
 
 `>>> pricer.basket = second_basket; pricer()`
+
+## Notice
+
+>All files were formatted with default Black rules (version 20.8b1)
