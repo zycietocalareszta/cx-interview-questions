@@ -1,4 +1,4 @@
-from math import ceil
+from decimal import Decimal, ROUND_UP
 
 
 def x_for_y_calculator(x, y, products_amount, product_price):
@@ -16,10 +16,12 @@ def x_for_y_calculator(x, y, products_amount, product_price):
     if products_amount < x:
         return 0
     if y > x or y <= 0:
-        raise ValueError(f"Discount makes customer buy each {x} products for a price of {y}.")
+        raise ValueError(
+            f"Discount makes customer buy each {x} products for a price of {y}."
+        )
     number_of_discountable_bundles = products_amount // x
 
-    return number_of_discountable_bundles * (x - y) * product_price
+    return number_of_discountable_bundles * (x - y) * Decimal(str(product_price))
 
 
 def x_get_y_calculator(x, y, products_amount, product_price):
@@ -37,10 +39,12 @@ def x_get_y_calculator(x, y, products_amount, product_price):
     if products_amount < x:
         return 0
     if y > x or y <= 0:
-        raise ValueError(f"Discount makes customer get {y} products for each {x} in the basket.")
+        raise ValueError(
+            f"Discount makes customer get {y} products for each {x} in the basket."
+        )
     number_of_discountable_bundles = products_amount // x
 
-    return number_of_discountable_bundles * y * product_price
+    return number_of_discountable_bundles * y * Decimal(str(product_price))
 
 
 def x_percent_calculator(x, products_amount, product_price):
@@ -53,7 +57,11 @@ def x_percent_calculator(x, products_amount, product_price):
     """
     x = int(x)
     if x > 100 or x < 0:
-        raise ValueError(f"Discount percentage cannot be negative nor more than 100: {x}.")
+        raise ValueError(
+            f"Discount percentage cannot be negative nor more than 100: {x}."
+        )
     else:
-        # Be good for customers, give them some bonus pennies
-        return ceil(products_amount * product_price * int(x)) / 100
+        # Be good to customers, give them some extra pennies
+        return (
+            products_amount * Decimal(str(product_price)) * Decimal(str(x / 100))
+        ).quantize(Decimal(".01"), rounding=ROUND_UP)

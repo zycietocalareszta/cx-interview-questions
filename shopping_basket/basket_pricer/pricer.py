@@ -1,6 +1,7 @@
 import re
 import logging
 from collections import Counter
+from decimal import Decimal
 
 from basket_pricer.discount_calculators import (
     x_for_y_calculator,
@@ -48,26 +49,22 @@ total: £{self._total}
     @basket.setter
     def basket(self, value):
         self._basket = Counter(value)
-        # Recalculate on basket replacement
+        # Recalculate everything on basket replacement
         self._sub_total = self.sub_total()
         self._discount = self.discount()
         self._total = self.total()
 
     def sub_total(self):
-        """
-        Calculates sub-total and returns it as a float.
-        """
-        sub_total = 0.00
-        for item, amount in self._basket.items():
-            sub_total += amount * self.catalogue[item]
+        """ Calculates sub-total and returns it as a Decimal. """
+        sub_total = Decimal("0.00")
+        for product, amount in self._basket.items():
+            sub_total += amount * Decimal(str(self.catalogue[product]))
 
         return sub_total
 
     def discount(self):
-        """
-        Calculates discount and returns it as a float.
-        """
-        discount = 0.00
+        """ Calculates discount and returns it as a Decimal. """
+        discount = Decimal("0.00")
         if not self.offers:
             return discount
         discounted_products = set(self._basket.keys()) & set(self.offers.keys())
@@ -79,28 +76,25 @@ total: £{self._total}
                 product_offers = (product_offers,)
             for offer in product_offers:
                 try:
-                    discount += self.__calculate_discount(
+                    discount += self._calculate_discount(
                         offer, amount_of_discounted_products, discounted_product_price
                     )
                 except ValueError as ex:
                     logging.warning(
                         f"Invalid offer: {discounted_product}: {offer} | {ex}"
                     )
-                    continue
 
         return discount
 
     def total(self):
-        """
-        Calculates total and returns it as a float.
-        """
+        """ Calculates total and returns it as a Decimal. """
         return (
             self._sub_total - self._discount
             if self._sub_total >= self._discount
-            else 0.00
+            else Decimal("0.00")
         )
 
-    def __calculate_discount(self, discount_name, products_amount, product_price):
+    def _calculate_discount(self, discount_name, products_amount, product_price):
         """
         Calculates a discount for a single offer
 
@@ -108,7 +102,7 @@ total: £{self._total}
         :param products_amount: amount of products
         :param product_price: price of a single product
         """
-        calculated_discount = 0.00
+        calculated_discount = Decimal("0.00")
         for discount_type, regex in self.DCN_TYP_REGEXPS.items():
             discount_name_match = re.match(regex, discount_name)
             if discount_name_match:
@@ -132,13 +126,22 @@ total: £{self._total}
         return calculated_discount
 
     def __validate_basket(self):
-        # TODO: implement
+        """Validates if basket is str -> integer mapping
+
+        TODO: implement
+        """
         pass
 
     def __validate_catalogue(self):
-        # TODO: implement
+        """Validates if catalogue is str -> int/float mapping
+
+        TODO: implement
+        """
         pass
 
     def __validate_offers(self):
-        # TODO: implement
+        """Validates if offers is str -> str/collection mapping
+
+        TODO: implement
+        """
         pass
