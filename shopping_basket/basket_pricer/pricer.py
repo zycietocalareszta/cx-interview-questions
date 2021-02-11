@@ -10,6 +10,13 @@ from basket_pricer.discount_calculators import (
 
 
 class BasketPricer:
+    """Class designed to calculate discounts for products which were put into the shopping basket.
+
+    :param basket: mapping of products and their amount
+    :param catalogue: mapping of product names and their prices
+    :param offers: mapping of product names and the list of their discounts
+    """
+
     DCN_TYP_REGEXPS = {
         "X_FOR_Y": re.compile(r"^([0-9]+)for([0-9]+)$"),
         "X_GET_Y": re.compile(r"^([0-9]+)get([0-9]+)$"),
@@ -17,13 +24,6 @@ class BasketPricer:
     }
 
     def __init__(self, basket: dict, catalogue: dict, offers: dict = None):
-        """
-        Class designed to calculate discounts for products which were put into the shopping basket.
-
-        :param basket: mapping of products and their amount
-        :param catalogue: mapping of product names and their prices
-        :param offers: mapping of product names and the list of their discounts
-        """
         self._basket = basket
         self.catalogue = catalogue
         self.offers = offers
