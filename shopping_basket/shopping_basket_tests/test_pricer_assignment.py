@@ -48,11 +48,11 @@ class TestAssignment:
 
     def test_pricers(self, first_basket, second_basket, catalogue, offers):
         second_pricer = BasketPricer(first_basket, catalogue, offers)
-        assert second_pricer._sub_total == Decimal("5.16")
-        assert second_pricer._discount == Decimal("1.98")
-        assert second_pricer._total == Decimal("3.18")
+        assert second_pricer.sub_total == Decimal("5.16")
+        assert second_pricer.discount == Decimal("1.98")
+        assert second_pricer.total == Decimal("3.18")
 
         second_pricer = BasketPricer(second_basket, catalogue, offers)
-        assert second_pricer._sub_total == Decimal("6.96")
-        assert second_pricer._discount == Decimal("1.94")
-        assert second_pricer._total == Decimal("5.02")
+        assert second_pricer.sub_total == Decimal("6.96")
+        assert second_pricer.discount == Decimal("1.94")
+        assert second_pricer.total == Decimal("5.02")
