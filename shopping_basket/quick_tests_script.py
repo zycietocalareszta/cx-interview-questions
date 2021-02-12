@@ -2,6 +2,7 @@ if __name__ == "__main__":
     import re
 
     from basket_pricer import BasketPricer
+    from basket_pricer.discount_calculators import x_get_cheapest_calculator
 
     basket = {
         "apple": 7,
@@ -46,3 +47,10 @@ if __name__ == "__main__":
     # Raises exception due to "Buy 2 get 3 free" offer
     test_pricer = BasketPricer(second_basket, catalogue, invalid_offers)
     test_pricer()
+
+    # Bonus Question example
+    # sorts prices as (3.12, 3.12, 1.29, 1.29, 1.29, 0.22)
+    # prints                       1.29 +            0.22 = 1.51
+    print(
+        x_get_cheapest_calculator(3, (1.29, 3.12, 1.29, 0.22, 1.29, 3.12))
+    )

@@ -6,6 +6,7 @@ from basket_pricer.discount_calculators import (
     x_for_y_calculator,
     x_get_y_calculator,
     x_percent_calculator,
+    x_get_cheapest_calculator,
 )
 
 
@@ -76,3 +77,19 @@ class TestXPercentCalculator:
     def test_101_percent_5(self):
         with pytest.raises(ValueError):
             x_percent_calculator(101, 5, 1.00)
+
+
+class TestXGetCheapestCalculator:
+    """ Test "Buy N of {X} get cheapest free" discount calculator """
+
+    @pytest.fixture
+    def prices(self):
+        return 1.29, 1.33, 1.29, 0.99, 1.33, 1.33
+
+    def test_two(self, prices):
+        assert x_get_cheapest_calculator(2, (1.29, 1.33)) == Decimal("1.29")
+        assert x_get_cheapest_calculator(2, prices) == Decimal("3.61")
+
+    def test_more(self, prices):
+        assert x_get_cheapest_calculator(3, prices) == Decimal("2.32")
+        assert x_get_cheapest_calculator(4, prices) == Decimal("1.29")

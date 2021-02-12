@@ -59,6 +59,6 @@ One can perform the following operations:
 
 `>>> pricer.basket = second_basket; pricer()`
 
-## Notice
+### Notes
 
 >All files were formatted with default Black rules (version 20.8b1)
