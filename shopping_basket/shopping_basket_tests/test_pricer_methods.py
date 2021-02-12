@@ -66,9 +66,9 @@ class TestPricerMethods:
         pricer_with_basket_catalogue_and_offers,
         pricer_with_multiple_offers,
     ):
-        assert empty_pricer.calculate_sub_total() == 0.00
+        assert empty_pricer.calculate_sub_total() == Decimal("0.00")
         assert pricer_with_basket_and_catalogue.calculate_sub_total() == Decimal(
-            "10005.2"
+            "10005.20"
         )
         assert pricer_with_basket_catalogue_and_offers.calculate_sub_total() == Decimal(
             "10005.20"
@@ -82,11 +82,11 @@ class TestPricerMethods:
         pricer_with_basket_catalogue_and_offers,
         pricer_with_multiple_offers,
     ):
-        assert empty_pricer.calculate_discount() == 0.00
-        assert pricer_with_basket_and_catalogue.calculate_discount() == 0
-        assert pricer_with_basket_and_catalogue.calculate_discount() == 0.00
+        assert empty_pricer.calculate_discount() == Decimal("0.00")
         assert pricer_with_basket_and_catalogue.calculate_discount() == Decimal("0.00")
-        assert pricer_with_basket_catalogue_and_offers.calculate_discount() == 3302
+        assert pricer_with_basket_catalogue_and_offers.calculate_discount() == Decimal(
+            "3302"
+        )
         assert pricer_with_multiple_offers.calculate_discount() == Decimal("3302.97")
 
     def test_total(
@@ -96,7 +96,7 @@ class TestPricerMethods:
         pricer_with_basket_catalogue_and_offers,
         pricer_with_multiple_offers,
     ):
-        assert empty_pricer.calculate_total() == 0.00
+        assert empty_pricer.calculate_total() == Decimal("0.00")
         assert pricer_with_basket_and_catalogue.calculate_total() == Decimal("10005.2")
         assert pricer_with_basket_catalogue_and_offers.calculate_total() == Decimal(
             "6703.2"
