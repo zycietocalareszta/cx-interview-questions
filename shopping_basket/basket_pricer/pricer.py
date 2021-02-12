@@ -108,9 +108,9 @@ total: £{self.total}
         for discount_type, regex in self.DCN_TYP_REGEXPS.items():
             discount_name_match = re.match(regex, discount_name)
             if discount_name_match:
-                x = discount_name_match.group(1)
+                x = int(discount_name_match.group(1))
                 try:
-                    y = discount_name_match.group(2)
+                    y = int(discount_name_match.group(2))
                 except IndexError:
                     calculated_discount = x_percent_calculator(
                         x, products_quantity, product_price
