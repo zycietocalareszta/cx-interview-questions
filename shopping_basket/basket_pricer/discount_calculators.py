@@ -2,15 +2,16 @@ from decimal import Decimal, ROUND_UP
 
 
 def x_for_y_calculator(x: int, y: int, products_quantity, product_price):
-    """
-    Returns discount for "Buy X for a price of Y" type of discounts.
+    """Returns discount for "Buy X products for a price of Y products" type of discounts.
     This discount can bundle, meaning "2 for 1" applies to 4 products as "4 for 2".
 
     :param x: how many products a customer has to buy for the discount to apply
     :param y: for how many products a customer has to pay
     :param products_quantity: number of products in the basket
     :param product_price: price for a single product
+    :raises ValueError: if Y is greater than X
     """
+
     if products_quantity < x:
         return 0
     if y > x or y <= 0:
@@ -23,15 +24,16 @@ def x_for_y_calculator(x: int, y: int, products_quantity, product_price):
 
 
 def x_get_y_calculator(x: int, y: int, products_quantity, product_price):
-    """
-    Returns discount for "Buy X get Y free" type of discounts.
+    """Returns discount for "Buy X products get Y products free" type of discounts.
     This discount can bundle, meaning "2 get 1 free" applies to 4 products as "4 get 2 free".
 
     :param x: how many products a customer has to buy for the discount to apply
     :param y: how many products a customer gets for free
     :param products_quantity: number of products in a basket
     :param product_price: price of a single product
+    :raises ValueError: if Y is greater than X
     """
+
     x = int(x)
     y = int(y)
     if products_quantity < x:
@@ -46,13 +48,14 @@ def x_get_y_calculator(x: int, y: int, products_quantity, product_price):
 
 
 def x_percent_calculator(x: int, products_quantity, product_price):
-    """
-    Returns discount for "X % discount" type of discounts.
+    """Returns discount for "X % discount" type of discounts.
 
     :param x: discount percentage
     :param products_quantity: number of products in a basket
     :param product_price: price of a single product
+    :raises ValueError: if X is more than 100 or less than 0
     """
+
     x = int(x)
     if x > 100 or x < 0:
         raise ValueError(

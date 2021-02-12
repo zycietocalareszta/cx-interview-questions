@@ -10,6 +10,8 @@ from basket_pricer.discount_calculators import (
 
 
 class TestXForYCalculator:
+    """ Test "Buy X products for a price of Y punds" discount calculator """
+
     def test_two_for_one_1(self):
         assert x_for_y_calculator(2, 1, 1, 1.00) == Decimal("0.00")
 
@@ -31,6 +33,8 @@ class TestXForYCalculator:
 
 
 class TestXGetYCalculator:
+    """ Test "Buy X products get Y products for free" discount calculator """
+
     def test_two_get_one_1(self):
         assert x_get_y_calculator(2, 1, 1, 1.00) == Decimal("0.00")
 
@@ -52,6 +56,8 @@ class TestXGetYCalculator:
 
 
 class TestXPercentCalculator:
+    """ Test "X %" discount calculator """
+
     def test_25_percent_1(self):
         assert x_percent_calculator(25, 1, 1.00) == Decimal("0.25")
 

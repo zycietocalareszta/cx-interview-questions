@@ -5,6 +5,12 @@ from basket_pricer.pricer import BasketPricer
 
 
 class TestAssignment:
+    """
+    Test cases described in the assignment.md.
+    Discount "Buy 2 get 1 free" works on bundles on purpose as described under "Other considerations -> 2nd point:
+    "...three for the price of two offer should also give you six for the price of four and nine for the price of six."
+    """
+
     @pytest.fixture
     def first_basket(self):
         basket = {
@@ -46,7 +52,7 @@ class TestAssignment:
 
         return offers
 
-    def test_pricers(self, first_basket, second_basket, catalogue, offers):
+    def test_baskets(self, first_basket, second_basket, catalogue, offers):
         second_pricer = BasketPricer(first_basket, catalogue, offers)
         assert second_pricer.sub_total == Decimal("5.16")
         assert second_pricer.discount == Decimal("1.98")

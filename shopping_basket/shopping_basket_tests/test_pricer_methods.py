@@ -6,6 +6,8 @@ from basket_pricer.pricer import BasketPricer
 
 
 class TestPricerMethods:
+    """ Contains tests for BasketPricer class methods """
+
     @pytest.fixture
     def basket(self):
         basket = {
@@ -110,23 +112,41 @@ class TestPricerMethods:
         assert empty_pricer._calculate_single_discount("3for1", 7, 0.12) == Decimal(
             "0.48"
         )
-        with pytest.raises(ValueError):
-            assert empty_pricer._calculate_single_discount("2for3", 2, 2.36)
-
         assert empty_pricer._calculate_single_discount("2get1", 2, 2.36) == Decimal(
             "2.36"
         )
         assert empty_pricer._calculate_single_discount("3get1", 7, 0.12) == Decimal(
             "0.24"
         )
-        with pytest.raises(ValueError):
-            assert empty_pricer._calculate_single_discount("2get3", 2, 2.36)
-
         assert empty_pricer._calculate_single_discount("50%", 2, 2.36) == Decimal(
             "2.36"
         )
+
         with pytest.raises(ValueError):
-            assert empty_pricer._calculate_single_discount("120%", 2, 2.36)
+            empty_pricer._calculate_single_discount("2get3", 2, 2.36)
+        with pytest.raises(ValueError):
+            empty_pricer._calculate_single_discount("120%", 2, 2.36)
+        with pytest.raises(ValueError):
+            empty_pricer._calculate_single_discount("2for3", 2, 2.36)
+
+    def test_discount_exception(self, pricer_with_basket_catalogue_and_offers):
+        from re import compile
+
+        pricer_with_basket_catalogue_and_offers.DCN_TYP_REGEXPS = {
+            "X_GET_Y": compile(r"^(.*)$"),
+        }
+        with pytest.raises(ValueError):
+            pricer_with_basket_catalogue_and_offers._calculate_single_discount(
+                "3get1", 3, 1.00
+            )
+
+        pricer_with_basket_catalogue_and_offers.DCN_TYP_REGEXPS = {
+            "X_WOW_Y": re.compile(r"^([0-9]+)wow([0-9]+)$"),
+        }
+        with pytest.raises(ValueError):
+            pricer_with_basket_catalogue_and_offers._calculate_single_discount(
+                "3wow1", 3, 1.00
+            )
 
 
 def test_regexps():

@@ -9,6 +9,8 @@ from basket_pricer.discount_calculators import (
     x_percent_calculator,
 )
 
+logging.getLogger(__name__).addHandler(logging.NullHandler())
+
 
 class BasketPricer:
     """Class designed to calculate discounts for products which were put into the shopping basket.
@@ -55,7 +57,12 @@ total: £{self.total}
         self.total = self.calculate_total()
 
     def calculate_sub_total(self):
-        """ Calculates sub-total and returns it as a Decimal. """
+        """Calculates sub-total and returns it.
+
+        :return: sub-total
+        :rtype: Decimal
+        """
+
         sub_total = Decimal("0.00")
         for product, quantity in self._basket.items():
             sub_total += quantity * Decimal(str(self.catalogue[product]))
@@ -63,7 +70,12 @@ total: £{self.total}
         return sub_total
 
     def calculate_discount(self):
-        """ Calculates discount and returns it as a Decimal. """
+        """Calculates discount and returns it as a Decimal.
+
+        :return: discount
+        :rtype: Decimal
+        """
+
         discount = Decimal("0.00")
         if not self.offers:
             return discount
@@ -79,15 +91,18 @@ total: £{self.total}
                     discount += self._calculate_single_discount(
                         offer, quantity_of_discounted_products, discounted_product_price
                     )
-                except ValueError as ex:
-                    logging.warning(
-                        f"Invalid offer: {discounted_product}: {offer} | {ex}"
-                    )
+                except ValueError:
+                    logging.warning(f"Invalid offer: {discounted_product}: {offer}.")
 
         return discount
 
     def calculate_total(self):
-        """ Calculates total and returns it as a Decimal. """
+        """Calculates total basing on sub_total and discount and returns it.
+
+        :return: total
+        :rtype: Decimal
+        """
+
         return (
             self.sub_total - self.discount
             if self.sub_total >= self.discount
@@ -97,13 +112,16 @@ total: £{self.total}
     def _calculate_single_discount(
         self, discount_name, products_quantity, product_price
     ):
-        """
-        Calculates a discount for a single offer
+        """Calculates a discount for a single offer
 
-        :param discount_name: name of a discount (one of the ones supported in DCN_TYP_REGEXPS mapping)
+        :param discount_name: name of a discount (one of the supported in DCN_TYP_REGEXPS mapping)
         :param products_quantity: quantity of products
         :param product_price: price of a single product
+        :return: calculated discount
+        :rtype: Decimal
+        :raises ValueError: if a discount_name is not supported (not in DCN_TYP_REGEXPS)
         """
+
         calculated_discount = Decimal("0.00")
         for discount_type, regex in self.DCN_TYP_REGEXPS.items():
             discount_name_match = re.match(regex, discount_name)
@@ -120,10 +138,12 @@ total: £{self.total}
                         calculated_discount = x_for_y_calculator(
                             x, y, products_quantity, product_price
                         )
-                    else:
+                    elif discount_type == "X_GET_Y":
                         calculated_discount = x_get_y_calculator(
                             x, y, products_quantity, product_price
                         )
+                    else:
+                        raise ValueError(f"Unsupported discount type: {discount_type}")
 
         return calculated_discount
 
